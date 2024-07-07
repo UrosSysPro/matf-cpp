@@ -1,6 +1,7 @@
 #include <iostream>
-
+#include <d3d12.h>
+#include "include/test.h"
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    printHello();
     return 0;
 }
