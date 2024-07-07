@@ -1,5 +1,5 @@
-C:/Users/uros/projects/directx-hello-world/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/uros/projects/directx-hello-world/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/uros/projects/directx-hello-world/cmake-build-debug/main/CMakeFiles/main.dir
-C:/Users/uros/projects/directx-hello-world/cmake-build-debug/main/CMakeFiles/edit_cache.dir
-C:/Users/uros/projects/directx-hello-world/cmake-build-debug/main/CMakeFiles/rebuild_cache.dir
+C:/Users/uros/projects/matf-cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/uros/projects/matf-cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/uros/projects/matf-cpp/cmake-build-debug/main/CMakeFiles/main.dir
+C:/Users/uros/projects/matf-cpp/cmake-build-debug/main/CMakeFiles/edit_cache.dir
+C:/Users/uros/projects/matf-cpp/cmake-build-debug/main/CMakeFiles/rebuild_cache.dir
