@@ -5,4 +5,5 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(main main.cpp
         include/test.h
-        src/test.cpp)
+        src/test.cpp
+        src/dajkstra/main.cpp)
