@@ -51,6 +51,16 @@ class Tree {
 		const std::string substr=word.substr(1,len-1);
 		return containsWordImpl(child,substr);
 	}
+	void printImpl(const Node *root,std::string prefix){
+		if (root==nullptr)return;
+		for (std::pair pair:root->children)
+		{
+			const char c = pair.first;
+			const Node *child = pair.second;
+			std::cout<<prefix<<c<<"\n";
+			printImpl(child," "+prefix);
+		}
+	}
 public:
 	Tree(){
 		this->root=nullptr;
@@ -63,6 +73,9 @@ public:
 	}
 	bool containsWord(std::string word){
 		return this->containsWordImpl(this->root,word);
+	}
+	void print(){
+		this->printImpl(root,"");
 	}
 	~Tree(){
 
@@ -96,5 +109,6 @@ int main() {
 	for (const std::string &word : addWords){
 		std::cout<<"contains "<<word<<": "<<t.containsWord(word)<<"\n";
 	}
+	t.print();
 	return 0;
 }
