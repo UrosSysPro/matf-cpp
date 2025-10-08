@@ -6,25 +6,25 @@
 class SegmentTree
 {
     std::vector<int> values;
-    void buildTree(int index);
+    void printImpl(int index);
+    int sumImpl(int start,int end,int i,int j);
 public:
     SegmentTree();
     ~SegmentTree();
     void init(std::vector<int> values);
-    int sum(int i,int j);
+    int sum(int start,int end);
+    void print();
 };
 
-SegmentTree::SegmentTree()
-{
+SegmentTree::SegmentTree(){
     values=std::vector<int>(0);
 }
 
-void SegmentTree::buildTree(int index)
-{
-    
+SegmentTree::~SegmentTree(){
+
 }
-void SegmentTree::init(std::vector<int> values)
-{
+
+void SegmentTree::init(std::vector<int> values){
     // init array
     int len=values.size();
     int size=1;
@@ -35,8 +35,29 @@ void SegmentTree::init(std::vector<int> values)
     // copy array
     for (int i=0;i<size/2+1;i++)this->values[size/2+i]=i<len?values[i]:0;
     //build tree
-    buildTree(0);
+    for (int i=size/2-1;i>=0;i--) {
+        this->values[i] = this->values[i*2+1]+this->values[i*2+2];
+    }
 }
+
+int SegmentTree::sum(int i,int j) {
+    return 0;
+}
+
+int SegmentTree::sumImpl(int start,int end,int i,int j) {
+    return 0;
+}
+
+void SegmentTree::print() {
+    this->printImpl(0);
+}
+void SegmentTree::printImpl(int index) {
+    if (index>=this->values.size())return;
+    this->printImpl(index*2+1);
+    std::cout<<this->values[index]<<" ";
+    this->printImpl(index*2+2);
+}
+
 
 int main(int argc, char** argv) {
     SegmentTree tree;
