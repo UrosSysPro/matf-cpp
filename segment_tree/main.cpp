@@ -40,8 +40,8 @@ void SegmentTree::init(std::vector<int> values){
     }
 }
 
-int SegmentTree::sum(int i,int j) {
-    return 0;
+int SegmentTree::sum(int start,int end) {
+    return this->sumImpl(start,end,0,this->values.size()-1);
 }
 
 int SegmentTree::sumImpl(int start,int end,int i,int j) {
