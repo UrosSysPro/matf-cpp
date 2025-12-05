@@ -6,3 +6,6 @@ add_subdirectory(fenvik_tree)
 add_subdirectory(prefix_tree)
 add_subdirectory(disjunktno_stablo)
 add_subdirectory(segment_tree)
+
+# 1.
+add_subdirectory(autocomplete)
