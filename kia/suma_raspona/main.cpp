@@ -1,7 +1,5 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <map>
 
 /*
 Naivni autocomplete
@@ -19,7 +17,6 @@ Opis izlaza
 
 Za svaki od upita, na standardni izlaz, ispisati sve reči iz rečnika za koje je on prefiks.
 Primer
-
 Ulaz
 
 5 3
@@ -34,29 +31,32 @@ code coder codecs coders
 code coder codecs coding coders cod
 */
 int main(int argc, char** argv) {
-
     int n, q;
     std::cin >> n >> q;
 
-    std::map<std::string, std::vector<std::string>> autocomplete;
-
+    std::vector<int> a(n);
     for (int i = 0; i < n; i++) {
-        std::string word;
-        std::cin >> word;
-
-        for (int i = 0; i <= word.size(); i++) {
-            autocomplete[word.substr(0, i)].push_back(word);
-        }
+        std::cin >> a[i];
     }
 
     for (int i = 0; i < q; i++) {
         std::string query;
         std::cin >> query;
 
-        for (auto word : autocomplete[query]) {
-            std::cout << word << " ";
+        if (query == "u") {
+            int ind, val;
+            std::cin >> ind >> val;
+            a[ind] = val;
+        } else if (query == "s") {
+            int l, r;
+            std::cin >> l >> r;
+
+            int sum = 0;
+            for (int i = l; i <= r; i++) {
+                sum += a[i];
+            }
+            std::cout << sum << std::endl;
         }
-        std::cout << std::endl;
     }
 
     return 0;

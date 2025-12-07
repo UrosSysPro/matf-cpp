@@ -9,3 +9,4 @@ add_subdirectory(segment_tree)
 
 # 1.
 add_subdirectory(autocomplete)
+add_subdirectory(suma_raspona)
