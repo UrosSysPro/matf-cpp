@@ -1,0 +1,1 @@
+add_executable(suma_raspona_prefix_sum main.cpp)
