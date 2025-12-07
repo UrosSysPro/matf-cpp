@@ -12,3 +12,7 @@ add_subdirectory(autocomplete)
 add_subdirectory(suma_raspona)
 add_subdirectory(suma_raspona_prefix_sum)
 add_subdirectory(disjunktni_skupovi)
+add_subdirectory(slozene_reci)
+
+# 2.
+add_subdirectory(osvoji_region)
