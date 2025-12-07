@@ -28,6 +28,7 @@ void make_set(Element *x)
 
     new_set->id = ID++;
     new_set->head = x;
+    new_set->tail = x;
 
     x->set = new_set;
 }
