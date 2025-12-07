@@ -5,23 +5,26 @@ using namespace std;
 
 int ID = 0;
 
-struct set;
+class Set;
+class Element;
 
-struct element {
+class Element {
+public:
     char id;
-    struct set *set = nullptr;
-    struct element *next = nullptr;
+    Set *set = nullptr;
+    Element *next = nullptr;
 };
 
-struct set {
+class Set {
+public:
     int id;
-    struct element *head = nullptr;
-    struct element *tail = nullptr;
+    Element *head = nullptr;
+    Element *tail = nullptr;
 };
 
-void make_set(struct element *x)
+void make_set(Element *x)
 {
-    auto new_set = new set();
+    auto new_set = new Set();
 
     new_set->id = ID++;
     new_set->head = x;
@@ -29,12 +32,12 @@ void make_set(struct element *x)
     x->set = new_set;
 }
 
-struct element *find_set(struct element *x)
+Element *find_set(Element *x)
 {
     return x->set->head;
 }
 
-void union_set(struct element *x, struct element *y)
+void union_set(Element *x, Element *y)
 {
     auto x_set = find_set(x)->set;
     auto y_set = find_set(y)->set;
@@ -49,12 +52,12 @@ void union_set(struct element *x, struct element *y)
     }
 }
 
-void print_element(struct element *x)
+void print_element(Element *x)
 {
     cout << x->id << " ";
 }
 
-void print_set(struct set *s)
+void print_set(Set *s)
 {
     cout << s->id << " [ ";
     auto head = s->head;
@@ -67,13 +70,13 @@ void print_set(struct set *s)
 
 int main(void)
 {
-    auto a = new element(); a->id = 'a';
-    auto b = new element(); b->id = 'b';
-    auto c = new element(); c->id = 'c';
-    auto d = new element(); d->id = 'd';
-    auto e = new element(); e->id = 'e';
-    auto f = new element(); f->id = 'f';
-    auto g = new element(); g->id = 'g';
+    auto a = new Element(); a->id = 'a';
+    auto b = new Element(); b->id = 'b';
+    auto c = new Element(); c->id = 'c';
+    auto d = new Element(); d->id = 'd';
+    auto e = new Element(); e->id = 'e';
+    auto f = new Element(); f->id = 'f';
+    auto g = new Element(); g->id = 'g';
 
     make_set(a);
     make_set(b);
