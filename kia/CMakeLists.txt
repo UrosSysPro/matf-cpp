@@ -16,3 +16,4 @@ add_subdirectory(slozene_reci)
 
 # 2.
 add_subdirectory(osvoji_region)
+add_subdirectory(odnosi)
