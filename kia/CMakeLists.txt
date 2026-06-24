@@ -19,3 +19,5 @@ add_subdirectory(osvoji_region)
 add_subdirectory(odnosi)
 
 add_subdirectory(random)
+
+add_subdirectory(data_structures)
