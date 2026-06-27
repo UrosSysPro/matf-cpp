@@ -51,14 +51,8 @@ private:
 
         return hasR(node->children[word[0]], word.substr(1));
     }
-    bool printR(Node* node, const string& prefix) {
-        if (node == nullptr) return false;
+    void printR(Node* node, const string& prefix) {
 
-        if (word.empty() && node->isWord) return true;
-
-        if (word.empty()) return false;
-
-        return hasR(node->children[word[0]], word.substr(1));
     }
     bool deleteR(Node* root) {
         for (auto& [key, value]: root->children) {

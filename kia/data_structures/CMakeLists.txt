@@ -5,3 +5,4 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(prefix_tree)
 add_subdirectory(dijkstra)
+add_subdirectory(union_find)
