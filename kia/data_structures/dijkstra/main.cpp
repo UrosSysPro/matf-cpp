@@ -1,85 +1,63 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
-#include <cstdlib>
-
-class Node;
-class Edge;
+#include <string>
+#include <utility>
+#include <algorithm>
 
 using namespace std;
 
-int n = 10;
-
-class Edge {
-public:
-    int start, end, weight;
-
-    Edge(int start, int end, int weight) {
-        this->start = start;
-        this->end = end;
-        this->weight = weight;
-    }
-};
-
-class Node {
-public:
-    bool visited;
-    string name;
-
-    Node(string name) {
-        this->visited = false;
-        this->name = name;
-    }
-};
-
 class Graph {
+private:
+    int n;
+    vector<vector<int>> neighbours_list;
+    vector<bool> visited;
+    vector<pair<int,int>> edges;
 public:
-    vector<Node> nodes;
-    vector<Edge> edges;
-
-    Graph(vector<Node> nodes, vector<Edge> edges) {
-        this->nodes = nodes;
-        this->edges = edges;
+    Graph(int n) {
+        this->n=n;
+        neighbours_list.resize(n);
+        visited.resize(n,false);
     }
 
-    ~Graph() {
-
+    void addEdge(int i, int j) {
+        neighbours_list[i].push_back(j);
+        neighbours_list[j].push_back(i);
     }
 
-    void printEdges() {
-        for (const auto &edge: edges) {
-            printf("%s --%d--> %s \n", nodes[edge.start].name.c_str(), edge.weight, nodes[edge.end].name.c_str());
+    void dfs(int index) {
+        visited[index]=true;
+        for (int j=0;j<neighbours_list[index].size();j++) {
+            if (!visited[j]) {
+                edges.push_back(pair(index,j));
+                dfs(neighbours_list[index][j]);
+            }
         }
     }
 
-    void printShortestDistances() {
-
+    vector<pair<int,int>> smer(int start) {
+        dfs(start);
+        return edges;
     }
 };
 
-int main(int argc, char** argv) {
-    Graph g = Graph(
-        vector<Node>({
-            Node("A"),
-            Node("B"),
-            Node("C"),
-            Node("D"),
-            Node("E"),
-            Node("F"),
-        }),
-        vector<Edge>({
-            Edge(0,1,5),
-            Edge(0,2,2),
-            Edge(0,4,6),
-            Edge(1,5,4),
-            Edge(2,5,1),
-            Edge(2,3,7),
-            Edge(3,5,9),
-            Edge(3,4,8),
-        })
-    );
+int main(int argc,char** argv) {
+    int n;
+    cin >> n;
+    Graph g = Graph(n);
+    for (int i=0;i<n-1;i++) {
+        int a,b;
+        cin>>a>>b;
+        g.addEdge(a,b);
+    }
+    int start;
+    cin>>start;
+    auto edges = g.smer(start);
 
-    g.printEdges();
+    sort(edges.begin(),edges.end());
+
+    for (const auto& [first,second]: edges) {
+        cout<<first<<" "<<second<<endl;
+    }
 
     return 0;
 }
