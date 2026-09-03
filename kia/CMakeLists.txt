@@ -20,4 +20,6 @@ add_subdirectory(odnosi)
 
 add_subdirectory(random)
 
+add_subdirectory(zadatak1)
+
 add_subdirectory(data_structures)
