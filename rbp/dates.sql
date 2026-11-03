@@ -23,3 +23,4 @@ values days('11.11.2008') - days('6.8.2005');
 
 -- koji ce datum biti za 12 godina, pet meseci i 22 dana
 values current_date + 12 years  + 5 months + 22 days;
+
